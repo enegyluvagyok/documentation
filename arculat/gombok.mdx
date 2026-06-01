@@ -1,0 +1,150 @@
+---
+title: "Gombok"
+description: "Gombstílusok, variánsok és használati szabályok"
+icon: "cursor-click"
+---
+
+## Alap gombstílus
+
+Minden gomb a `kf-btn` osztályból indul:
+
+```css
+.kf-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 28px;
+  border-radius: 18px;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color .25s ease, color .25s ease,
+              border-color .25s ease, transform .25s ease;
+}
+
+.kf-btn:hover {
+  transform: translateY(-2px);
+}
+```
+
+---
+
+## Variánsok
+
+### Elsődleges gomb (Primary)
+
+```html
+<a class="kf-btn kf-btn-primary" href="#">Szöveg</a>
+```
+
+```css
+.kf-btn-primary {
+  background: var(--kf-red-dark);   /* #B3122F */
+  color: #fff;
+  border: none;
+}
+.kf-btn-primary:hover {
+  background: var(--kf-red);        /* #E63946 */
+}
+```
+
+**Mikor:** Legfontosabb CTA — Csatlakozás, Kapcsolatfelvétel, Feliratkozom.
+
+---
+
+### Másodlagos gomb (Secondary)
+
+```html
+<a class="kf-btn kf-btn-secondary" href="#">Szöveg</a>
+```
+
+```css
+.kf-btn-secondary {
+  background: transparent;
+  color: var(--kf-white);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+.kf-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+```
+
+**Mikor:** Másodlagos link — pl. „Programjaink".
+
+---
+
+### Zöld másodlagos gomb
+
+```html
+<a class="kf-btn kf-btn-secondary kf-btn-green" href="#">Szöveg</a>
+```
+
+```css
+.kf-btn-green {
+  color: var(--kf-green-soft);
+  border-color: var(--kf-green-soft);
+}
+.kf-btn-green:hover {
+  background: var(--kf-green);
+  border-color: var(--kf-green);
+  color: #fff;
+}
+```
+
+**Mikor:** Zöld akcentusú másodlagos CTA — pl. „Programjaink".
+
+---
+
+### Instagram gomb
+
+```html
+<a class="kf-btn kf-btn-secondary kf-btn-instagram" href="#">Kövess Instagramon</a>
+```
+
+```css
+.kf-btn-instagram {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-color: #e1306c;
+  color: #e1306c;
+}
+.kf-btn-instagram:hover {
+  background-color: #e1306c;
+  color: #fff;
+}
+```
+
+---
+
+## Ikonos gomb
+
+Az SVG ikon egyenesen a szöveg elé kerül, a gombba foglalva:
+
+```html
+<a class="kf-btn kf-btn-secondary kf-btn-instagram" href="#">
+  <svg width="18" height="18" ...>...</svg>
+  Kövess Instagramon
+</a>
+```
+
+---
+
+## Használati szabályok
+
+<Warning>
+  Egy nézetterületen legfeljebb egy Primary gomb szerepeljen. Kettő Primary gomb egymás mellett gyengíti mindkettő hatását.
+</Warning>
+
+| Szabály | Leírás |
+|---|---|
+| **Párosítás** | Primary + Secondary kombinálható, de ne Primary + Primary |
+| **Méret** | Ne változtasd a padding-ot és border-radius-t — ezek az arculat részei |
+| **Szöveg** | Rövid, cselekvésre ösztönző — max. 3 szó |
+| **Ikon** | Ha ikont adsz, `gap: 8px` az SVG és szöveg között |
+| **Átmenet** | A `translateY(-2px)` hover kötelező, ne vedd ki |

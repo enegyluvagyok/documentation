@@ -1,0 +1,113 @@
+---
+title: "Színpaletta"
+description: "A KF brand teljes színrendszere CSS változókkal"
+icon: "swatchbook"
+---
+
+## CSS változók
+
+Minden szín a `:root` blokkban van definiálva a `kf-global.css`-ben. Új stílusoknál mindig a változót használd, soha ne a nyers hex értéket.
+
+```css
+:root {
+  --kf-red-dark:   #B3122F;
+  --kf-red:        #E63946;
+  --kf-white-soft: #FFF5F5;
+  --kf-white:      #F8FAF8;
+  --kf-green-soft: #7FB77E;
+  --kf-green:      #1F7A4D;
+  --kf-green-dark: #163A2F;
+  --kf-graphite:   #2A2A2A;
+  --kf-black:      #050505;
+  --kf-surface:    #0d0d0d;
+  --kf-surface-2:  #141414;
+  --kf-border:     rgba(255, 255, 255, .08);
+  --kf-text:       #cfcfcf;
+  --kf-text-muted: #888888;
+}
+```
+
+---
+
+## Elsődleges színek
+
+### Vörös skála
+
+| Változó | Hex | Felhasználás |
+|---|---|---|
+| `--kf-red-dark` | `#B3122F` | Elsődleges gomb alapállapot, hangsúlyos elemek |
+| `--kf-red` | `#E63946` | Hover állapot, aktív menüpontok, kiemelések |
+| `--kf-white-soft` | `#FFF5F5` | Halvány piros-fehér háttér árnyék |
+
+### Zöld skála
+
+| Változó | Hex | Felhasználás |
+|---|---|---|
+| `--kf-green-soft` | `#7FB77E` | Másodlagos gombok, linkek, ikonok, hangsúlyos szöveg |
+| `--kf-green` | `#1F7A4D` | Zöld gomb hover, erős zöld akcentus |
+| `--kf-green-dark` | `#163A2F` | Sötét zöld felületek, háttér variáns |
+
+---
+
+## Felületi és szöveg színek (Dark mód)
+
+| Változó | Hex | Felhasználás |
+|---|---|---|
+| `--kf-black` | `#050505` | Legmélyebb háttér |
+| `--kf-surface` | `#0d0d0d` | Kártya- és widgethátterek |
+| `--kf-surface-2` | `#141414` | Emelt felületek, input mezők |
+| `--kf-graphite` | `#2A2A2A` | Grafitszürke elem |
+| `--kf-border` | `rgba(255,255,255,.08)` | Keretek, elválasztók |
+| `--kf-text` | `#cfcfcf` | Általános törzsszöveg |
+| `--kf-text-muted` | `#888888` | Meta-szövegek, alcímek, dátumok |
+| `--kf-white` | `#F8FAF8` | Főcímek, kiemelések |
+
+---
+
+## Felületi és szöveg színek (Light mód)
+
+A light módban a CSS változók felülíródnak a `html[data-theme="light"]` szelektorban:
+
+```css
+html[data-theme="light"] {
+  --kf-surface:    #ffffff;
+  --kf-surface-2:  #eeeeef;
+  --kf-border:     rgba(0, 0, 0, 0.09);
+  --kf-text:       #2d2d2d;
+  --kf-text-muted: #6b6b6b;
+  --kf-white:      #111111;
+  --kf-white-soft: #f9f9f9;
+  --kf-graphite:   #e5e5e5;
+  --kf-black:      #f6f6f8;
+}
+```
+
+---
+
+## Oldalháttér
+
+Az oldal háttere nem egyszerű szín, hanem rétegzett CSS gradiens:
+
+```css
+/* Dark mód */
+html {
+  background:
+    radial-gradient(circle at 20% 10%, rgba(230, 57, 70, 0.22), transparent 34%),
+    radial-gradient(circle at 80% 80%, rgba(31, 122, 77, 0.26), transparent 36%),
+    linear-gradient(160deg, #000 0%, #0a0a0a 45%, #0d1f17 100%);
+  background-attachment: fixed;
+}
+```
+
+A bal felső sarokban vöröses, a jobb alsóban zöldes fénycsóva jelenik meg a fekete háttéren — ez adja a mélység érzetét.
+
+---
+
+## Speciális platformszínek
+
+| Platform | Hex | Felhasználás |
+|---|---|---|
+| Instagram | `#e1306c` | CTA gomb és hover |
+| Facebook | `#1877f2` | Social ikon hover |
+| YouTube | `#ff0000` | Social ikon hover |
+| TikTok (keret) | `#69c9d0` | Social ikon hover keret |

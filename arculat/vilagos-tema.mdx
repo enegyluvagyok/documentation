@@ -1,0 +1,139 @@
+---
+title: "Világos téma (light mód)"
+description: "A light mód CSS változói, felületi átírások és viselkedés"
+icon: "sun"
+---
+
+## Aktiválás
+
+A light mód a `html` elemen lévő `data-theme="light"` attribútummal aktiválódik. A témaváltó JavaScript `localStorage`-ba írja az értéket, és oldalletöltéskor a `<head>`-ben lévő inline script azonnal beállítja az attribútumot — így nem villan az oldal.
+
+```html
+<html data-theme="light">
+```
+
+---
+
+## CSS változó felülírások
+
+A light módban az összes felületi és szövegszín újra van definiálva:
+
+```css
+html[data-theme="light"] {
+  --kf-surface:    #ffffff;
+  --kf-surface-2:  #eeeeef;
+  --kf-border:     rgba(0, 0, 0, 0.09);
+  --kf-text:       #2d2d2d;
+  --kf-text-muted: #6b6b6b;
+  --kf-white:      #111111;
+  --kf-white-soft: #f9f9f9;
+  --kf-graphite:   #e5e5e5;
+  --kf-black:      #f6f6f8;
+}
+```
+
+<Info>
+  A brand színek (`--kf-red`, `--kf-red-dark`, `--kf-green`, `--kf-green-soft`, `--kf-green-dark`) **nem változnak** light módban — ezek platformfüggetlenek.
+</Info>
+
+---
+
+## Oldalháttér (light)
+
+```css
+html[data-theme="light"] {
+  background:
+    radial-gradient(circle at 20% 10%, rgba(230, 57, 70, 0.05), transparent 34%),
+    radial-gradient(circle at 80% 80%, rgba(31, 122, 77, 0.07), transparent 36%),
+    linear-gradient(160deg, #f6f6f8 0%, #f3f3f5 45%, #eff4f1 100%) !important;
+}
+```
+
+Halvány szürkésfehér alap, ugyanolyan szerkezetű mint a dark mód, de 5–7%-os akcentusokkal a piros és zöld fényekből.
+
+---
+
+## Komponens-specifikus felülírások
+
+### Fejléc
+
+```css
+html[data-theme="light"] #masthead {
+  background-color: rgba(255, 255, 255, 0.97) !important;
+  border-bottom-color: rgba(0, 0, 0, 0.08) !important;
+}
+```
+
+### Kártyák
+
+```css
+html[data-theme="light"] .kf-card {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+html[data-theme="light"] .kf-card h3 { color: #111111; }
+html[data-theme="light"] .kf-card p  { color: #555555; }
+```
+
+### Dark szekció
+
+```css
+html[data-theme="light"] .kf-dark {
+  background: #f0f0f2;
+  border-bottom-color: rgba(0, 0, 0, 0.06);
+}
+```
+
+### Instagram szekció
+
+```css
+html[data-theme="light"] .kf-instagram-section {
+  background:
+    radial-gradient(circle at 70% 20%, rgba(225, 48, 108, 0.05), transparent 38%),
+    radial-gradient(circle at 20% 80%, rgba(31, 122, 77, 0.04), transparent 36%);
+  border-color: rgba(0, 0, 0, 0.07);
+}
+```
+
+---
+
+## Témaváltó gomb ikonok
+
+| Téma | Látható ikon | Logika |
+|---|---|---|
+| Dark mód | ☀️ Nap | „Kattints a light módra váltáshoz" |
+| Light mód | 🌙 Hold | „Kattints a dark módra visszaváltáshoz" |
+
+```css
+/* Dark módban a nap látható */
+html:not([data-theme]) .kf-theme-toggle__icon--sun,
+html[data-theme="dark"] .kf-theme-toggle__icon--sun { opacity: 1; }
+html:not([data-theme]) .kf-theme-toggle__icon--moon,
+html[data-theme="dark"] .kf-theme-toggle__icon--moon { opacity: 0; }
+
+/* Light módban a hold látható */
+html[data-theme="light"] .kf-theme-toggle__icon--sun  { opacity: 0; }
+html[data-theme="light"] .kf-theme-toggle__icon--moon { opacity: 1; }
+```
+
+---
+
+## Bővítési útmutató
+
+Új komponens light módra hozásakor kövesd ezt a mintát:
+
+```css
+/* 1. Dark mód (alap — a :root változókon dolgozik, általában elég) */
+.kf-uj-komponens {
+  background: var(--kf-surface);
+  color: var(--kf-text);
+  border: 1px solid var(--kf-border);
+}
+
+/* 2. Light mód felülírás — csak ha szükséges */
+html[data-theme="light"] .kf-uj-komponens {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.09);
+}
+```

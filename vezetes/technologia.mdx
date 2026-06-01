@@ -1,0 +1,66 @@
+---
+title: "Technológiai stack"
+description: "A weboldal mögötti technológiai megoldások"
+icon: "code"
+---
+
+## Platform és keretrendszer
+
+| Réteg | Technológia |
+|---|---|
+| **CMS** | WordPress 6.x |
+| **Téma** | Astra (egyedi KF override réteggel) |
+| **E-commerce** | WooCommerce |
+| **Instagram Feed** | Smash Balloon Instagram Feed |
+| **Szerverkörnyezet** | WAMP64 / Apache + PHP + MySQL |
+
+---
+
+## Fájlstruktúra (releváns)
+
+```
+wp-content/themes/astra/
+├── assets/
+│   └── css/
+│       └── kf-global.css          ← Egyedi stílusok (dark téma, komponensek)
+├── template-parts/
+│   ├── mainpage.php               ← Főoldal szekciói
+│   └── footer/
+│       └── kf-footer.php          ← Egyedi footer (social, hírlevél, kredit)
+└── functions.php                  ← Enqueue, WC filter, gettext override
+```
+
+---
+
+## Stílusrétegek
+
+<Steps>
+  <Step title="Astra alap CSS">
+    Az Astra téma saját stílusai — layout, grid, Customizer-beállítások.
+  </Step>
+  <Step title="kf-global.css">
+    Az összes egyedi KF stílus egy fájlban: dark téma, komponensek, footer, Instagram feed, light mód. Kb. 1 900 sor.
+  </Step>
+  <Step title="Smash Balloon sbi-styles.css">
+    A plugin saját stílusai — ezeket a `kf-global.css`-ben lévő `.kf-instagram-feed` prefix alatti szabályok írják felül.
+  </Step>
+</Steps>
+
+---
+
+## Bővítmények
+
+| Bővítmény | Szerepe |
+|---|---|
+| WooCommerce | Webshop, termékek, kosár, pénztár |
+| Smash Balloon Instagram Feed | Instagram feed megjelenítés a főoldalon |
+
+---
+
+## Lokalizáció
+
+Az oldalon a `gettext` WordPress filter segítségével van néhány angol szöveg magyarra cserélve `functions.php`-ból:
+
+- `Availability:` → `Elérhetőség:`
+- `Follow on Instagram` → `Kövess Instagramon`
+- WooCommerce oldalcímek: Kosár, Pénztár, Fiókom stb.

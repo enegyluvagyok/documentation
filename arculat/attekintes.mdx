@@ -1,0 +1,48 @@
+---
+title: "Arculat áttekintése"
+description: "A Kárpátok Forrása vizuális identitásának alapelvei"
+icon: "palette"
+---
+
+## Arculati alapelvek
+
+A Kárpátok Forrása vizuális világa három értékre épül: **mélység**, **természetesség** és **erő**. Az arculat sötét alapon dolgozik, vörös és zöld akcentusokkal — a nemzeti trikolór stilizált értelmezéseként.
+
+---
+
+## Hangulat és stílus
+
+<CardGroup cols={2}>
+  <Card title="Sötét és méltóságteljes" icon="moon">
+    Az alapszín sötétfekete, gazdag gradiens háttérrel. Nem rideg, hanem mélységet és komolyságot sugárzó sötétség.
+  </Card>
+  <Card title="Természetes akcentusok" icon="leaf">
+    A zöld tónus a természethez, a hagyományhoz és a növekedéshez kapcsolódik. A vörös az erőt és a szenvedélyt jelképezi.
+  </Card>
+  <Card title="Serif tipográfia" icon="text">
+    Georgia betűtípus — klasszikus, irodalmi, időálló. Tudatosan kerüli a modern sans-serif vizuális klisét.
+  </Card>
+  <Card title="Kétféle téma" icon="sun">
+    Dark mód az alapértelmezett. Light mód elérhető, mindkettő ugyanabból a CSS-változórendszerből dolgozik.
+  </Card>
+</CardGroup>
+
+---
+
+## Gyors referencia
+
+| Elem | Érték |
+|---|---|
+| **Elsődleges szín** | `#E63946` (KF Piros) |
+| **Hangsúlyszín** | `#7FB77E` (KF Zöld Soft) |
+| **Betűtípus** | Georgia, 'Times New Roman', serif |
+| **Gomb-radius** | 18px |
+| **Gomb-stílus** | Nagybetűs, 0.1em letter-spacing |
+| **Kártya-radius** | 12–20px |
+| **Téma** | Dark alapértelmezett / Light váltható |
+
+---
+
+<Note>
+  A teljes CSS-változókészlet a `kf-global.css` fájl tetején, a `:root` blokkban található. Minden szín és felületi érték innen hivatkozódik — soha ne használj hardkódolt hex értékeket új komponensekhez.
+</Note>

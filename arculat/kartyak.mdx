@@ -1,0 +1,185 @@
+---
+title: "Kártyák és listák"
+description: "Értékkártyák, programkártyák, termékblokkok és listák stílusa"
+icon: "rectangle"
+---
+
+## Értékkártya (kf-card)
+
+A Küldetés szekcióban használt három kártya.
+
+```html
+<article class="kf-card">
+  <div class="kf-icon">
+    <svg>...</svg>
+  </div>
+  <h3>Ifjúságnevelés</h3>
+  <p>Leírás szövege.</p>
+</article>
+```
+
+```css
+.kf-card {
+  background: var(--kf-surface);
+  border: 1px solid var(--kf-border);
+  border-radius: 20px;
+  padding: 32px 28px;
+  transition: border-color .3s ease, transform .3s ease;
+}
+
+.kf-card:hover {
+  border-color: rgba(127, 183, 126, .3);
+  transform: translateY(-4px);
+}
+```
+
+### Ikon blokk
+
+```css
+.kf-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: linear-gradient(145deg, rgba(255,255,255,.07), rgba(255,255,255,.02));
+  border: 1px solid var(--kf-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.kf-icon svg {
+  width: 26px;
+  height: 26px;
+}
+```
+
+Az ikon SVG stroke színe az adott pillérhöz igazodik: piros (Ifjúságnevelés), zöld (Közművelődés), fehér (Hagyományőrzés).
+
+---
+
+## Programkártya (kf-program)
+
+A Programok szekcióban — számozott négyes grid.
+
+```html
+<article class="kf-program">
+  <div class="kf-program-number">01</div>
+  <h3>Koncertek & rendezvények</h3>
+  <p>Leírás szövege.</p>
+</article>
+```
+
+```css
+.kf-program {
+  background: var(--kf-surface);
+  border: 1px solid var(--kf-border);
+  border-radius: 16px;
+  padding: 28px 24px;
+  text-align: left;
+  transition: border-color .3s ease, transform .3s ease;
+}
+
+.kf-program:hover {
+  border-color: rgba(230, 57, 70, .25);
+  transform: translateY(-3px);
+}
+
+.kf-program-number {
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--kf-red);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+```
+
+---
+
+## Termékkártya (kf-product)
+
+A Merch szekció jobb oldali 2×2 gridje.
+
+```html
+<div class="kf-product black">
+  <div class="kf-product-content">
+    <div class="kf-product-label">Merch</div>
+    <div class="kf-product-title">Pólók és kiegészítők</div>
+  </div>
+</div>
+```
+
+Négy színvariáns: `black`, `red`, `green`, `light`.
+
+---
+
+## Információs kártya (kf-info-card)
+
+A Támogatás szekcióban — szervezeti adatok megjelenítésére.
+
+```html
+<div class="kf-info-card">
+  <div class="kf-info-grid">
+    <div>
+      <div class="kf-info-label">Szervezet</div>
+      <div class="kf-info-value primary">Kárpátok Forrása...</div>
+    </div>
+  </div>
+  <div class="kf-info-actions">
+    <a class="kf-btn kf-btn-primary" href="#">Kapcsolatfelvétel</a>
+  </div>
+</div>
+```
+
+---
+
+## Lista (kf-list)
+
+Felsorolásokhoz a split layoutokban.
+
+```html
+<ul class="kf-list">
+  <li>
+    <strong>Webshop:</strong>
+    saját termékek és tematikus kollekciók.
+  </li>
+</ul>
+```
+
+```css
+.kf-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.kf-list li {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--kf-border);
+  border-radius: 12px;
+  padding: 14px 18px;
+  color: var(--kf-text);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.kf-list strong {
+  color: var(--kf-white);
+  font-weight: 600;
+}
+```
+
+---
+
+## Hover szabályok
+
+| Kártyatípus | Hover hatás |
+|---|---|
+| `kf-card` | `translateY(-4px)` + zöld keret tint |
+| `kf-program` | `translateY(-3px)` + piros keret tint |
+| `kf-product` | Nincs (`transform: none`) |
+| `kf-info-card` | Nincs |

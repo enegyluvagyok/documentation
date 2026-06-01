@@ -1,0 +1,145 @@
+---
+title: "Tipográfia"
+description: "Betűtípusok, méretek és szövegstílusok"
+icon: "text-size"
+---
+
+## Betűcsalád
+
+Az oldal kizárólag egy betűcsaládot használ:
+
+```css
+font-family: Georgia, 'Times New Roman', serif;
+```
+
+**Miért Georgia?** A serif betűtípus klasszikus, időálló és irodalmi hangulatot kölcsönöz — illeszkedik a kulturális, hagyományőrző arculathoz. Tudatos döntés a modern, geometrikus sans-serif irányával szemben.
+
+<Note>
+  A Google Fonts vagy más külső betűtípus-betöltő szándékosan nincs használatban — a Georgia rendszerszintű betűtípus, így nincs teljesítménybeli hátrány.
+</Note>
+
+---
+
+## Típusskála
+
+### Főcím (H1) — Hero
+
+```css
+.kf-title {
+  font-size: clamp(52px, 8vw, 96px);
+  font-weight: 700;
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--kf-white);
+}
+
+.kf-title span {
+  color: var(--kf-red);
+}
+```
+
+Használat: kizárólag a hero szekcióban. A „KÁRPÁTOK" fehér, a „FORRÁSA" vörös.
+
+---
+
+### Szekciócím (H2)
+
+```css
+.kf-section-title {
+  font-size: clamp(26px, 4vw, 44px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--kf-white);
+}
+```
+
+---
+
+### Kártya- és programcím (H3)
+
+```css
+.kf-card h3,
+.kf-program h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--kf-white);
+}
+```
+
+---
+
+### Kicker (feliratkacímke)
+
+```css
+.kf-kicker {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--kf-text-muted);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--kf-border);
+  border-radius: 99px;
+  padding: 5px 14px;
+}
+```
+
+A kicker szekciók fölé kerül — kis méretű, ritkított, nagybetűs felirat, amely megnevezi a szekciót.
+
+---
+
+### Bevezető szöveg (lead)
+
+```css
+.kf-lead {
+  font-size: clamp(16px, 1.8vw, 20px);
+  line-height: 1.75;
+  color: var(--kf-text);
+  margin-bottom: 1.4em;
+}
+```
+
+---
+
+### Szekciószöveg
+
+```css
+.kf-section-text {
+  font-size: clamp(15px, 1.5vw, 18px);
+  line-height: 1.8;
+  color: var(--kf-text);
+  max-width: 640px;
+  margin: 0 auto 2rem;
+}
+```
+
+---
+
+### Programszám
+
+```css
+.kf-program-number {
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--kf-red);
+  font-weight: 700;
+}
+```
+
+---
+
+## Összefoglaló táblázat
+
+| Elem | Méret | Szín | Stílus |
+|---|---|---|---|
+| Hero H1 | clamp(52px–96px) | `--kf-white` / `--kf-red` | Bold, uppercase, -0.03em |
+| Section H2 | clamp(26px–44px) | `--kf-white` | Bold, -0.02em |
+| Card H3 | 18px | `--kf-white` | Semibold |
+| Kicker | 11px | `--kf-text-muted` | Uppercase, +0.26em |
+| Lead | clamp(16px–20px) | `--kf-text` | Regular, 1.75 line-height |
+| Body | clamp(15px–18px) | `--kf-text` | Regular, 1.8 line-height |
+| Program number | 13px | `--kf-red` | Bold, uppercase |
+| Gomb | 13px | `#fff` | Uppercase, +0.1em |

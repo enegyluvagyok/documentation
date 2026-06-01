@@ -1,0 +1,103 @@
+---
+title: "Sötét téma (alapértelmezett)"
+description: "A dark mód részletei, háttér, felületek és szövegszínek"
+icon: "moon"
+---
+
+## Alapállapot
+
+A sötét téma az oldal alapértelmezett megjelenése. A `html` elemen nincs `data-theme` attribútum, vagy `data-theme="dark"` értékű — mindkét esetben a sötét stílusok érvényesek.
+
+```css
+html:not([data-theme]),
+html[data-theme="dark"] {
+  /* Az összes --kf-* változó sötét értéken áll */
+}
+```
+
+---
+
+## Háttér
+
+```css
+html {
+  background:
+    radial-gradient(circle at 20% 10%, rgba(230, 57, 70, 0.22), transparent 34%),
+    radial-gradient(circle at 80% 80%, rgba(31, 122, 77, 0.26), transparent 36%),
+    linear-gradient(160deg, #000 0%, #0a0a0a 45%, #0d1f17 100%);
+  background-attachment: fixed;
+}
+```
+
+- **Bal felső:** halvány vöröses fénycsóva (22% átlátszóság)
+- **Jobb alsó:** halvány zöldes fénycsóva (26% átlátszóság)
+- **Alap:** fekete → sötétszürke → sötétzöld tónusú gradiens
+
+A `background-attachment: fixed` miatt görgetéskor a háttér nem mozdul — parallax hatást kelt.
+
+---
+
+## Felületi rétegek
+
+| Felület | Szín | Megjelenés |
+|---|---|---|
+| Oldal háttér | `#000` / `#0a0a0a` | Legmélyebb réteg |
+| `--kf-surface` | `#0d0d0d` | Kártyák, widgetek |
+| `--kf-surface-2` | `#141414` | Input mezők, tab-ok |
+| `--kf-border` | `rgba(255,255,255,.08)` | Keretsorok, elválasztók |
+
+---
+
+## Szövegszínek
+
+| Változó | Hex | Felhasználás |
+|---|---|---|
+| `--kf-white` | `#F8FAF8` | Főcímek, H1–H6 |
+| `--kf-text` | `#cfcfcf` | Törzsszöveg |
+| `--kf-text-muted` | `#888888` | Meta-info, dátumok, al-feliratok |
+
+---
+
+## Header
+
+```css
+#masthead, .site-header, .main-header-bar {
+  background-color: rgba(5, 5, 5, .96);
+  border-bottom: 1px solid var(--kf-border);
+}
+```
+
+Közel fekete, 96%-os átlátszatlan háttér — átlátszatlan annyira, hogy a görgetőhátér ne „lógjon ki" alatta.
+
+---
+
+## Témaváltó gomb
+
+A jobb alsó sarokban fixált `44×44px`-es kerek gomb, sötét módban nap ikont mutat (a váltáshoz).
+
+```css
+.kf-theme-toggle {
+  position: fixed;
+  bottom: 88px;
+  right: 24px;
+  z-index: 9999;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--kf-surface-2);
+  border: 1px solid var(--kf-border);
+}
+```
+
+A témaváltás `localStorage`-ban tárolódik és oldalletöltéskor azonnal alkalmazódik a `<html>` elemre, villanás nélkül.
+
+---
+
+## Dark mód szekcióhátterek
+
+| Szekció | Háttér |
+|---|---|
+| `kf-section` | Átlátszó (oldal háttér látszik) |
+| `kf-dark` | `var(--kf-surface)` = `#0d0d0d` |
+| `kf-hero` | Dedikált radial gradiens vörös-zöld tónussal |
+| `kf-instagram-section` | Pink/zöld halvány radial gradiens |

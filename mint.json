@@ -1,0 +1,84 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "Kárpátok Forrása",
+  "logo": {
+    "dark": "/logo/kf-logo.png",
+    "light": "/logo/kf-logo.png"
+  },
+  "favicon": "/logo/favicon.png",
+  "colors": {
+    "primary": "#E63946",
+    "light": "#7FB77E",
+    "dark": "#B3122F",
+    "background": {
+      "dark": "#050505",
+      "light": "#F8FAF8"
+    }
+  },
+  "topbarLinks": [
+    {
+      "name": "Weboldal",
+      "url": "https://karpatokforrasa.hu"
+    }
+  ],
+  "topbarCtaButton": {
+    "name": "Kapcsolat",
+    "url": "mailto:info@karpatokforrasa.hu"
+  },
+  "tabs": [
+    {
+      "name": "Vezetői összefoglaló",
+      "url": "vezetes"
+    },
+    {
+      "name": "Arculati kézikönyv",
+      "url": "arculat"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Szervezet",
+      "pages": [
+        "vezetes/attekintes",
+        "vezetes/kuldetes",
+        "vezetes/programok",
+        "vezetes/szervezet"
+      ]
+    },
+    {
+      "group": "Weboldal",
+      "pages": [
+        "vezetes/oldal-felepites",
+        "vezetes/technologia"
+      ]
+    },
+    {
+      "group": "Alapok",
+      "pages": [
+        "arculat/attekintes",
+        "arculat/szinek",
+        "arculat/tipografia"
+      ]
+    },
+    {
+      "group": "Komponensek",
+      "pages": [
+        "arculat/gombok",
+        "arculat/kartyak",
+        "arculat/szekcio-layout"
+      ]
+    },
+    {
+      "group": "Téma",
+      "pages": [
+        "arculat/sotet-tema",
+        "arculat/vilagos-tema"
+      ]
+    }
+  ],
+  "footerSocials": {
+    "facebook": "https://www.facebook.com/profile.php?id=61590502893433",
+    "instagram": "https://www.instagram.com/karpatokforrasa/",
+    "youtube": "https://www.youtube.com/channel/UCoa0s_ueYyqpxirj_44PJHQ"
+  }
+}
